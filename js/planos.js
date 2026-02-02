@@ -41,7 +41,7 @@ function mostrarPlano(p) {
   `;
 
   document.getElementById("visorPDF").src =
-    "Planos/" + p.pdf;
+    "planos/" + p.pdf;
 }
 
 /* ===== FECHA ===== */
@@ -64,4 +64,5 @@ function abrirPDFCompleto() {
   const pdf = document.getElementById("visorPDF").src;
   if (pdf) window.open(pdf, "_blank");
 }
+
 
