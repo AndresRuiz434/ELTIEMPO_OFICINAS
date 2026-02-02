@@ -41,6 +41,14 @@ function renderLista(data) {
   });
 }
 
+fetch("data/datos.json")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("tituloProyecto").textContent =
+      data.info.proyecto;
+
+  });
+
 function mostrarDetalle(el) {
   detalle.innerHTML = `
     <h3>Elemento ${el["ID Columna"]}</h3>
@@ -75,4 +83,7 @@ function cambiarTipo(nuevoTipo) {
   renderLista(elementos);
   limpiarDetalle();
 }
+
+
+
 
