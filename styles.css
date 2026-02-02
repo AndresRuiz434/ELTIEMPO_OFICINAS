@@ -10,7 +10,7 @@ body {
   color: white;
   padding: 14px 16px;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 220px 1fr 220px;
   align-items: center;
   box-sizing: border-box;
 }
@@ -21,6 +21,12 @@ body {
   font-size: 26px;
   cursor: pointer;
   color: white;
+}
+
+.header-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .header-center {
@@ -41,6 +47,25 @@ body {
   font-size: 16px;
   font-weight: bold;
   opacity: 0.9;
+}
+
+.header-left {
+  display: flex;
+  gap: 8px;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.icon-btn:hover {
+  background: rgba(0,0,0,0.08);
 }
 
 .logo {
@@ -256,6 +281,8 @@ select {
   cursor: pointer;
 }
 
+
+
 /* =========================
    SECCIONES DE ELEMENTOS
 ========================= */
@@ -426,8 +453,38 @@ td {
   transition: background 0.2s;
 }
 
+.btn-correo {
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-weight: 600;
+  text-decoration: none;
+  background-color: #155494;
+  color: white;
+  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
 .btn-whatsapp:hover {
   background-color: #1ebc59;
+}
+
+.btn.correo {
+  background-color: #155494;
+}
+
+.btn.bim {
+  padding: 12px 25px;
+  border-radius: 25px;
+  background-color: #1f7ae0; 
+  color: #fff;
+  display: inline-flex;
+  text-decoration: none;
+}
+
+.btn.bim:hover {
+  background-color: #155fb3;
 }
 
 .info-adicional {
@@ -480,3 +537,193 @@ td:first-child {
 td:last-child {
   width: 65%;
 }
+
+/* ===== LOGIN ===== */
+
+body.login {
+  background: #f2f2f2;
+}
+
+.login-container {
+  display: flex;
+  height: calc(100vh - 70px);
+}
+
+.login-image {
+  flex: 1.2;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-image img {
+  max-width: 90%;
+  height: auto;
+}
+
+.login-content {
+  flex: 0.8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-login {
+  width: 180px;
+  margin-bottom: 20px;
+}
+
+.logo-cliente {
+  max-width: 160px;
+  margin: 0 auto 16px;
+  display: block;
+  object-fit: contain;
+}
+
+
+.login-card {
+  width: 100%;
+  max-width: 380px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.12);
+}
+
+.login-card input {
+  width: 90%;
+  margin-bottom: 15px;
+  padding: 12px;
+}
+
+.login-card button {
+  padding: 12px;
+  background: #30ad36;
+  color: white;
+  border: none;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.login-card button:hover {
+  background: #278c2d;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .login-container {
+    flex-direction: column;
+  }
+
+  .login-image {
+    width: 100%;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .login-image img {
+    width: 90%;
+    max-width: 340px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .login-card {
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+    padding: 24px 20px;
+  }
+
+    .header {
+    grid-template-columns: auto 1fr auto;
+    padding: 10px 12px;
+  }
+
+  .header-center h1 {
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .header-center h2 {
+    display: none; /* subtítulo fuera en móvil */
+  }
+
+  .logo {
+    display: none; /* logo fuera en móvil */
+  }
+
+  .icon-btn {
+    font-size: 20px;
+    padding: 6px;
+  }
+
+  .main-content {
+    margin-left: 64px;
+  }
+  .side-menu {
+    width: 44px;
+    border-radius: 14px;
+  }
+
+  .side-menu a {
+    font-size: 18px;
+    width: 34px;
+    height: 34px;
+  }
+}
+
+.side-menu {
+  position: fixed;
+  top: 64px;
+  left: 8px;
+  width: 56px;
+  /*height: calc(100vh - 72px);*/
+  background: #7ee483;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 12px;
+  gap: 14px;
+  z-index: 1000;
+
+}
+
+.side-menu a {
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  font-size: 22px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.side-menu a:hover {
+  background: rgba(255,255,255,0.15);
+  transform: scale(1.05);
+}
+
+.main-content {
+  margin-left: 72px;
+}
+
+
