@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
       cargarParametros(data.parametros);
       cargarMateriales(data.materiales);
       configurarWhatsapp(data.info.proyecto);
+      configurarCorreo(data.info.proyecto);
     })
     .catch(err => console.error("Error cargando datos:", err));
 });
@@ -57,6 +58,21 @@ function configurarWhatsapp(proyecto) {
     `Hola, quisiera información sobre el proyecto: ${proyecto}`
   );
 
-  btn.href = `https://wa.me/573115589669?text=${mensaje}`;
+  btn.href = `https://wa.me/573157106081?text=${mensaje}`;
 }
+
+function configurarCorreo(proyecto) {
+  const btn = document.getElementById("btnCorreo");
+  if (!btn) return;
+
+  const correo = "marcelopaez@aycardiestructural.com"; 
+  const asunto = encodeURIComponent(`Consulta proyecto: ${proyecto}`);
+  const cuerpo = encodeURIComponent(
+    `Buen día,\n\nQuisiera recibir información sobre el proyecto:\n${proyecto}\n\nGracias.`
+  );
+
+  btn.href = `mailto:${correo}?subject=${asunto}&body=${cuerpo}`;
+}
+
+
 
