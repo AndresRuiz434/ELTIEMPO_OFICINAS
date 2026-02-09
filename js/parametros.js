@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
       cargarMateriales(data.materiales);
       configurarWhatsapp(data.info);
       configurarCorreo(data.info);
+      configurarCorreo2(data.info);
     })
     .catch(err => console.error("Error cargando datos:", err));
 });
@@ -74,6 +75,43 @@ function configurarCorreo(info) {
   btn.href = `mailto:${correo}?subject=${asunto}&body=${cuerpo}`;
 }
 
+function configurarCorreo2(info) {
+  const btn = document.getElementById("btnCorreo2");
+  if (!btn) return;
 
+  const correo = "administracion@aycardiestructural.com" ; 
+  const asunto = encodeURIComponent(`Consulta proyecto: ${info.proyecto}`);
+  const cuerpo = encodeURIComponent(
+    `Buen día,\n\nQuisiera recibir información sobre el proyecto:\n${info.proyecto}\n\nGracias.`
+  );
+
+  btn.href = `mailto:${correo}?subject=${asunto}&body=${cuerpo}`;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const rol = (localStorage.getItem("rol") || "")
+    .toLowerCase()
+    .trim();
+
+  if (rol === "interno") {
+
+    document.querySelectorAll(".side-menu a").forEach(link => {
+      const href = link.getAttribute("href") || "";
+
+      // Ocultar elementos estructurales
+      if (
+        href.includes("elementos.html?tipo=columnas") ||
+        href.includes("elementos.html?tipo=vigas") ||
+        href.includes("elementos.html?tipo=muros") ||
+        href.includes("elementos.html?tipo=losas") ||
+        href.includes("info.html")
+      ) {
+        link.style.display = "none";
+      }
+    });
+  }
+
+});
 
 
