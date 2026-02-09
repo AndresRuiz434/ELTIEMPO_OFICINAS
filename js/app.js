@@ -1,7 +1,45 @@
-function mostrarVista(id) {
-  document.querySelectorAll(".view").forEach(v => v.classList.add("hidden"));
-  document.getElementById(id).classList.remove("hidden");
-}
+let DATA = {};
+let elementos = [];
+
+fetch("data/datos.json")
+  .then(res => res.json())
+  .then(data => {
+    DATA = data;
+
+    document.getElementById("tituloProyecto").textContent =
+      data.info.proyecto;
+
+    configurarBarraProgreso(data.info);
+
+    // inicializar vista
+    elementos = DATA.columnas || [];
+    renderLista(elementos);
+  });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const rol = localStorage.getItem("rol") || "externo";
+  console.log("Rol activo:", rol);
+
+  if (rol === "interno") {
+    document
+      .querySelectorAll('[data-seccion="estructural"], [data-seccion="info"]')
+      .forEach(el => el.style.display = "none");
+  }
+
+  document.querySelectorAll(".menu-seccion").forEach(seccion => {
+    const visibles = seccion.querySelectorAll(
+      ".card:not([style*='display: none'])"
+    );
+
+    if (visibles.length === 0) {
+      seccion.style.display = "none";
+    }
+});
+
+});
+
 
 function abrirSeccion(tipo) {
   tipoActivo = tipo;
@@ -13,13 +51,62 @@ function abrirSeccion(tipo) {
   renderLista(elementos);
 }
 
-function volverMenu() {
-  mostrarVista("menuView");
+function configurarBarraProgreso(info) {
+
+  const rol = localStorage.getItem("rol") || "cliente";
+
+  if (rol !== "interno") return;
+
+  const barra = document.getElementById("barraProgreso");
+  if (!barra) return;
+
+  barra.classList.remove("hidden");
+
+  const progresoDiseno = Number(info.progresoDiseno || 0);
+  const progresoDibujo = Number(info.progresoDibujo || 0);
+
+  dibujarDonut("donutDiseno", progresoDiseno, "#2563eb");
+  dibujarDonut("donutDibujo", progresoDibujo, "#16a34a");
+}
+
+
+function dibujarDonut(canvasId, porcentaje, color) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+
+  const ctx = canvas.getContext("2d");
+  const r = canvas.width / 2;
+  const center = r;
+  const inicio = -Math.PI / 2;
+  const angulo = (porcentaje / 100) * 2 * Math.PI;
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Fondo
+  ctx.beginPath();
+  ctx.arc(center, center, r - 6, 0, 2 * Math.PI);
+  ctx.strokeStyle = "#e5e7eb";
+  ctx.lineWidth = 8;
+  ctx.stroke();
+
+  // Progreso
+  ctx.beginPath();
+  ctx.arc(center, center, r - 6, inicio, inicio + angulo);
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 8;
+  ctx.lineCap = "round";
+  ctx.stroke();
+
+  // Texto %
+  ctx.fillStyle = "#111";
+  ctx.font = "bold 14px sans-serif";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.fillText(`${porcentaje}%`, center, center);
 }
 
 
 let tablaActual = "Columnas";
-let elementos = DATA[tablaActual];
 
 const lista = document.getElementById("listaElementos");
 const detalle = document.getElementById("detalleElemento");
@@ -41,23 +128,6 @@ function renderLista(data) {
   });
 }
 
-fetch("data/datos.json")
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById("tituloProyecto").textContent =
-      data.info.proyecto;
-
-  });
-
-function mostrarDetalle(el) {
-  detalle.innerHTML = `
-    <h3>Elemento ${el["ID Columna"]}</h3>
-    <p><b>Sección:</b> ${el["Sección"]}</p>
-    <p><b>Cantidad:</b> ${el["Cantidad"]}</p>
-    <p><b>Resistencia:</b> ${el["Resistencia (MPa)"]} MPa</p>
-    <p><b>Plano:</b> ${el["Plano"]}</p>
-  `;
-}
 
 inputBusqueda.addEventListener("input", () => {
   const texto = inputBusqueda.value.toLowerCase();
@@ -72,17 +142,52 @@ inputBusqueda.addEventListener("input", () => {
   renderLista(filtrados);
 });
 
-renderLista(elementos);
+document.addEventListener("DOMContentLoaded", () => {
 
-function cambiarTipo(nuevoTipo) {
-  tipoActivo = nuevoTipo;
-  elementos = DATA[tipoActivo];
+  const rol = (localStorage.getItem("rol") || "")
+    .toLowerCase()
+    .trim();
 
-  document.getElementById("tituloSeccion").innerText = tipoActivo;
+  if (rol === "interno") {
 
-  renderLista(elementos);
-  limpiarDetalle();
-}
+    document.querySelectorAll(".side-menu a").forEach(link => {
+      const href = link.getAttribute("href") || "";
+
+      // Ocultar elementos estructurales
+      if (
+        href.includes("elementos.html?tipo=columnas") ||
+        href.includes("elementos.html?tipo=vigas") ||
+        href.includes("elementos.html?tipo=muros") ||
+        href.includes("elementos.html?tipo=losas") ||
+        href.includes("info.html")
+      ) {
+        link.style.display = "none";
+      }
+    });
+  }
+
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const btnCerrar = document.getElementById("btnCerrarSesion");
+
+  if (btnCerrar) {
+    btnCerrar.addEventListener("click", () => {
+
+      // Limpiar sesión
+      localStorage.removeItem("rol");
+      localStorage.removeItem("usuario");
+
+      // Volver a login
+      window.location.href = "index.html";
+    });
+  }
+
+});
+
+
+
 
 
 
