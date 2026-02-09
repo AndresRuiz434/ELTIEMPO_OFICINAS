@@ -2,6 +2,7 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: #f2f2f2;
+    padding-bottom: 36px;
 }
 
 /* FRANJA SUPERIOR */
@@ -140,10 +141,6 @@ body {
     table {
     font-size: 0.9rem;
     font-size: 13px;
-    }
-
-    th, td {
-    padding: 10px 8px;
     }
 
     .contenedor,
@@ -425,7 +422,9 @@ th, td {
   padding: 6px 10px;
   text-align: left;
   border-bottom: 1px solid #ddd;
+  vertical-align: middle;
 }
+
 
 th {
   font-size: 14px;
@@ -441,51 +440,21 @@ td {
   margin-top: 40px;
 }
 
-.btn-whatsapp {
-  display: inline-block;
-  background-color: #25D366;
-  color: #fff;
-  text-decoration: none;
-  padding: 12px 25px;
-  border-radius: 25px;
-  font-size: 15px;
-  font-weight: bold;
-  transition: background 0.2s;
-}
-
-.btn-correo {
+.btn {
   padding: 12px 25px;
   border-radius: 25px;
   font-weight: 600;
   text-decoration: none;
-  background-color: #155494;
-  color: white;
-  font-size: 15px;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 6px;
 }
 
-.btn-whatsapp:hover {
-  background-color: #1ebc59;
-}
+.btn.whatsapp { background:#25D366; color:white; }
+.btn.correo { background:#155494; color:white; }
+.btn.bim { background:#1f7ae0; color:white; }
 
-.btn.correo {
-  background-color: #155494;
-}
-
-.btn.bim {
-  padding: 12px 25px;
-  border-radius: 25px;
-  background-color: #1f7ae0; 
-  color: #fff;
-  display: inline-flex;
-  text-decoration: none;
-}
-
-.btn.bim:hover {
-  background-color: #155fb3;
-}
 
 .info-adicional {
     margin-top: 40px;
@@ -521,11 +490,6 @@ td {
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
-  }
-
-  td, th {
-    padding: 6px 10px !important;
-    font-size: 13px;
   }
 
 }
@@ -628,8 +592,7 @@ body.login {
 
   .login-image {
     width: 100%;
-    max-height: 180px;
-    height: auto;
+    height: 220px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -639,7 +602,7 @@ body.login {
     width: 90%;
     max-width: 340px;
     height: auto;
-    max-height: 180px;
+    max-height: 220px;
     object-fit: contain;
     margin-top: 16px;
   }
@@ -732,7 +695,265 @@ body.login {
   margin-left: 72px;
 }
 
+.bloque-progreso {
+  flex: 1;
+  font-size: 14px;
+  color: rgb(0, 0, 0);
+}
+
+.barra-progreso {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 20px 0;
+}
+
+.bloque-donut {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #444;
+}
 
 
+.progreso-donut {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
 
+.donut-texto {
+  font-size: 13px;
+  color: #555;
+  font-weight: 500;
+}
+
+
+.hidden {
+  display: none !important;
+}
+
+
+/* móvil */
+@media (max-width: 600px) {
+  .barra-progreso {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.bloque-vigas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.detalle-grafica {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+  margin-top: 15px;
+}
+
+.grafica-resistencia {
+  background: white;
+  border-radius: 12px;
+  height: auto;
+  min-height: 200px;
+  max-height: 600px;
+  padding: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+#graficaPisos{
+  width: 100%;
+  max-height: 450px;
+}
+
+.detalle,
+.grafica-resistencia {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.grafica-header {
+  font-size: 15px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #e0e0e0;
+  text-align: center;
+}
+
+.grafica-resistencia canvas {
+  flex: 1;
+}
+
+
+@media (max-width: 800px) {
+  .detalle-grafica {
+    grid-template-columns: 1fr;
+  }
+
+  .grafica-resistencia {
+    margin-top: 15px;
+  }
+}
+
+.separador {
+  border-top: 1px solid #e0e0e0;
+  margin: 10px 0;
+}
+
+.grid-recomendaciones {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 10px;
+}
+
+.card-recomendacion {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.card-recomendacion:hover {
+  transform: translateY(-4px);
+}
+
+.card-recomendacion .preview {
+  height: 200px;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+.card-recomendacion canvas {
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+.card-recomendacion .preview embed {
+  width: 120%;
+  height: 120%;
+  border: none;
+  pointer-events: none; 
+  position: absolute;
+  top: -10%;
+  left: -10%;
+}
+
+
+.card-recomendacion .info {
+  padding: 10px;
+  text-align: center;
+}
+
+.card-recomendacion button {
+  background: #1d680a;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.menu-seccion {
+  margin-bottom: 30px;
+}
+
+.menu-titulo {
+  font-size: 16px;
+  font-weight: 600;
+  color: #444;
+  margin: 10px 0 15px;
+  padding-left: 5px;
+  border-left: 4px solid #1f7ae0;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.visor-overlay {
+  position: fixed;
+  inset: 0;
+  background: #111;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+}
+
+.visor-header {
+  height: 50px;
+  background: #1f2933;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+
+.visor-header button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.visor-overlay iframe {
+  flex: 1;
+  width: 100%;
+}
+
+.marca-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 36px;
+  background-color: #30ad36;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  z-index: 1000;
+}
+
+.side-menu a#btnCerrarSesion {
+  margin-top: auto;
+  color: #c0392b;
+  font-size: 18px;
+}
+
+.btn-logout {
+  background: none;
+  border: none;
+  color: #ffffff; /* verde corporativo */
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 6px 8px;
+}
+
+.btn-logout:hover {
+  text-decoration: underline;
+}
 
