@@ -4,8 +4,8 @@
     "bim": "0.6",
     "telefono": "3157106081",
     "correo": "marcelopaez@aycardiestructural.com",
-    "progresoDibujo": 0.6,
-    "progresoDiseno": 0.769230769230769
+    "progresoDibujo": 60,
+    "progresoDiseno": 76.92
   },
   "planos": [
     {
@@ -1539,4 +1539,5 @@
     }
   ]
 }
+
 
