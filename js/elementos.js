@@ -178,7 +178,9 @@ function seleccionarElemento(el) {
       <div class="card-detalle">
         <div class="fila">
           <span class="label">Plano</span>
-          <span class="valor">${el.plano}</span>
+          <span class="valor plano-link" data-plano="${el.plano}">
+            ${el.plano}
+          </span>
         </div>
 
         <div class="fila">
@@ -237,12 +239,25 @@ function seleccionarElemento(el) {
           }
           return el[c] !== undefined;
         })
-        .map(c => `
-          <div class="fila">
-            <span class="label">${campos[c]}</span>
-            <span class="valor">${el[c]}</span>
-          </div>
-        `)
+        .map(c => {
+          if (c === "plano") {
+            return `
+              <div class="fila">
+                <span class="label">${campos[c]}</span>
+                <span class="valor plano-link" data-plano="${el.plano}">
+                  ${el.plano}
+                </span>
+              </div>
+            `;
+          }
+
+          return `
+            <div class="fila">
+              <span class="label">${campos[c]}</span>
+              <span class="valor">${el[c]}</span>
+            </div>
+          `;
+        })
         .join("")}
 
       <div class="separador"></div>
@@ -744,4 +759,14 @@ function filtrarPorPiso() {
 }
 
 
+document.addEventListener("click", e => {
+  const target = e.target;
 
+  if (target.classList.contains("plano-link")) {
+    const plano = target.dataset.plano;
+
+    if (plano) {
+      window.location.href = `planos.html?plano=${encodeURIComponent(plano)}`;
+    }
+  }
+});
