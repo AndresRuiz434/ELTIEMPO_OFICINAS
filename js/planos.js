@@ -58,7 +58,7 @@ function mostrarPlano(p) {
   `;
 
   document.getElementById("visorPDF").src =
-    "planos/" + p.pdf;
+    "Planos/" + p.pdf;
 }
 
 /* ===== FECHA ===== */
@@ -112,5 +112,6 @@ function obtenerPlanoDesdeURL() {
   const params = new URLSearchParams(window.location.search);
   return params.get("plano");
 }
+
 
 
