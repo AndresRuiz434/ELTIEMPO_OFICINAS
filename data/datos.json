@@ -1,11 +1,17 @@
 {
   "info": {
-    "proyecto": "AE-0463 EL TIEMPO OFICINAS",
+    "proyecto": "AE-0463-EDIFICIO OFICINAS-CANTIDADES",
     "bim": "0.6",
     "telefono": "3157106081",
     "correo": "marcelopaez@aycardiestructural.com",
+    "cantidades": "AE-0463-EDIFICIO OFICINAS-CANTIDADES",
+    "aliado": "Construcciones planificadas",
+    "firmaArquitectura": "Construcciones planificadas",
+    "ingenieroSuelos": "Alfonso Uribe S. y Cia. S.A.",
+    "gerenteProyecto": "Roberto Aycardi",
+    "directorProyecto": "Marcelo Paez",
     "progresoDibujo": 60,
-    "progresoDiseno": 76.92
+    "progresoDiseno": 76
   },
   "planos": [
     {
@@ -119,6 +125,85 @@
       "fecha": 45790,
       "contenido": "Plano de planta Cubierta",
       "pdf": "1206-EST-2024-PP-ADM-PLANTA DE CUB.pdf"
+    }
+  ],
+  "pilotes": [
+    {
+      "id": "ID PILOTE",
+      "seccion": "Sección",
+      "cantidad": null,
+      "prof": null,
+      "longitud": null,
+      "plano": "Plano",
+      "resistencia": null,
+      "volumen": null,
+      "peso": null
+    },
+    {
+      "id": "1",
+      "seccion": "Ø 0.8 m",
+      "cantidad": 8,
+      "prof": 23,
+      "longitud": 15,
+      "plano": "1206-EST-2010-PP-ADM-PLANTA DE CIM",
+      "resistencia": 28,
+      "volumen": 60.318578948924,
+      "peso": 3840.6
+    },
+    {
+      "id": "2",
+      "seccion": "Ø 1.0 m",
+      "cantidad": 2,
+      "prof": 23,
+      "longitud": 16.9,
+      "plano": "1206-EST-2010-PP-ADM-PLANTA DE CIM",
+      "resistencia": 28,
+      "volumen": 26.5464579228337,
+      "peso": 1549.9
+    },
+    {
+      "id": "3",
+      "seccion": "Ø 1.0 m",
+      "cantidad": 12,
+      "prof": 23,
+      "longitud": 16.9,
+      "plano": "1206-EST-2010-PP-ADM-PLANTA DE CIM",
+      "resistencia": 28,
+      "volumen": 159.278747537002,
+      "peso": 9376.2
+    },
+    {
+      "id": "4",
+      "seccion": "Ø 0.8 m",
+      "cantidad": 11,
+      "prof": 23,
+      "longitud": 18.7,
+      "plano": "1206-EST-2010-PP-ADM-PLANTA DE CIM",
+      "resistencia": 28,
+      "volumen": 103.396097414947,
+      "peso": 6357.725
+    },
+    {
+      "id": "5",
+      "seccion": "Ø 0.9 m",
+      "cantidad": 6,
+      "prof": 23,
+      "longitud": 18.7,
+      "plano": "1206-EST-2010-PP-ADM-PLANTA DE CIM",
+      "resistencia": 28,
+      "volumen": 71.3785558858869,
+      "peso": 4504.8
+    },
+    {
+      "id": "6",
+      "seccion": "Ø 0.9 m",
+      "cantidad": 8,
+      "prof": 23,
+      "longitud": 18.7,
+      "plano": "1206-EST-2010-PP-ADM-PLANTA DE CIM",
+      "resistencia": 28,
+      "volumen": 95.1714078478492,
+      "peso": 6006.4
     }
   ],
   "columnas": [
@@ -949,7 +1034,7 @@
     },
     {
       "id": "101",
-      "piso": "2",
+      "piso": "Cimentacion",
       "seccion": "60x60",
       "plano": "1206-EST-2016-PD-ADM-P2-D1",
       "cantidad": 1,
@@ -959,7 +1044,7 @@
     },
     {
       "id": "102",
-      "piso": "2",
+      "piso": "Cimentacion",
       "seccion": "60x60;80x60;50x60;75x60",
       "plano": "1206-EST-2016-PD-ADM-P2-D1",
       "cantidad": 1,
@@ -969,7 +1054,7 @@
     },
     {
       "id": "103",
-      "piso": "2",
+      "piso": "Cimentacion",
       "seccion": "30x60",
       "plano": "1206-EST-2016-PD-ADM-P2-D1",
       "cantidad": 2,
@@ -979,7 +1064,7 @@
     },
     {
       "id": "104",
-      "piso": "2",
+      "piso": "Cimentacion",
       "seccion": "30x60",
       "plano": "1206-EST-2016-PD-ADM-P2-D1",
       "cantidad": 2,
@@ -1159,7 +1244,7 @@
     },
     {
       "id": "122",
-      "piso": "2",
+      "piso": "3",
       "seccion": "20x50",
       "plano": "1206-EST-2017-PD-ADM-P2-D2",
       "cantidad": 1,
@@ -1169,7 +1254,7 @@
     },
     {
       "id": "123",
-      "piso": "2",
+      "piso": "3",
       "seccion": "20x50",
       "plano": "1206-EST-2017-PD-ADM-P2-D2",
       "cantidad": 1,
@@ -1179,7 +1264,7 @@
     },
     {
       "id": "124",
-      "piso": "2",
+      "piso": "3",
       "seccion": "20x50",
       "plano": "1206-EST-2017-PD-ADM-P2-D2",
       "cantidad": 3,
@@ -1189,8 +1274,8 @@
     },
     {
       "id": "125",
-      "piso": "2",
-      "seccion": "",
+      "piso": "3",
+      "seccion": "20x50",
       "plano": "1206-EST-2017-PD-ADM-P2-D2",
       "cantidad": 4,
       "resistencia": 21,
@@ -1199,8 +1284,8 @@
     },
     {
       "id": "126",
-      "piso": "2",
-      "seccion": "",
+      "piso": "3",
+      "seccion": "20x50",
       "plano": "1206-EST-2017-PD-ADM-P2-D2",
       "cantidad": 1,
       "resistencia": 21,
@@ -1209,8 +1294,8 @@
     },
     {
       "id": "127",
-      "piso": "2",
-      "seccion": "",
+      "piso": "3",
+      "seccion": "40x50;57x50;20x50",
       "plano": "1206-EST-2017-PD-ADM-P2-D2",
       "cantidad": 1,
       "resistencia": 21,
@@ -1219,8 +1304,8 @@
     },
     {
       "id": "128",
-      "piso": "2",
-      "seccion": "",
+      "piso": "4",
+      "seccion": "20x50",
       "plano": "1206-EST-2017A-PD-ADM-P2-D3",
       "cantidad": 4,
       "resistencia": 21,
@@ -1229,8 +1314,8 @@
     },
     {
       "id": "129",
-      "piso": "2",
-      "seccion": "",
+      "piso": "4",
+      "seccion": "20x50",
       "plano": "1206-EST-2017A-PD-ADM-P2-D3",
       "cantidad": 1,
       "resistencia": 21,
@@ -1239,8 +1324,8 @@
     },
     {
       "id": "130",
-      "piso": "2",
-      "seccion": "",
+      "piso": "4",
+      "seccion": "20x50",
       "plano": "1206-EST-2017A-PD-ADM-P2-D3",
       "cantidad": 2,
       "resistencia": 21,
@@ -1249,7 +1334,7 @@
     },
     {
       "id": "131",
-      "piso": "2",
+      "piso": "4",
       "seccion": "",
       "plano": "1206-EST-2017A-PD-ADM-P2-D3",
       "cantidad": 2,
@@ -1259,8 +1344,8 @@
     },
     {
       "id": "132",
-      "piso": "2",
-      "seccion": "",
+      "piso": "4",
+      "seccion": "20x50",
       "plano": "1206-EST-2017A-PD-ADM-P2-D3",
       "cantidad": 2,
       "resistencia": 21,
@@ -1269,8 +1354,8 @@
     },
     {
       "id": "133",
-      "piso": "2",
-      "seccion": "",
+      "piso": "4",
+      "seccion": "20x50",
       "plano": "1206-EST-2017A-PD-ADM-P2-D3",
       "cantidad": 2,
       "resistencia": 21,
@@ -1279,8 +1364,8 @@
     },
     {
       "id": "134",
-      "piso": "2",
-      "seccion": "",
+      "piso": "4",
+      "seccion": "40x50;57x50;20x50",
       "plano": "1206-EST-2017A-PD-ADM-P2-D3",
       "cantidad": 1,
       "resistencia": 21,
@@ -1289,8 +1374,8 @@
     },
     {
       "id": "135",
-      "piso": "2",
-      "seccion": "",
+      "piso": "4",
+      "seccion": "20x50",
       "plano": "1206-EST-2017A-PD-ADM-P2-D3",
       "cantidad": 1,
       "resistencia": 21,
@@ -1299,8 +1384,8 @@
     },
     {
       "id": "136",
-      "piso": "2",
-      "seccion": "",
+      "piso": "4",
+      "seccion": "20x50",
       "plano": "1206-EST-2017A-PD-ADM-P2-D3",
       "cantidad": 2,
       "resistencia": 21,
@@ -1309,8 +1394,8 @@
     },
     {
       "id": "137",
-      "piso": "2",
-      "seccion": "",
+      "piso": "4",
+      "seccion": "20x50",
       "plano": "1206-EST-2017A-PD-ADM-P2-D3",
       "cantidad": 1,
       "resistencia": 21,
@@ -1319,7 +1404,7 @@
     },
     {
       "id": "138",
-      "piso": "2",
+      "piso": "4",
       "seccion": "",
       "plano": "1206-EST-2017A-PD-ADM-P2-D3",
       "cantidad": 1,
@@ -1329,7 +1414,7 @@
     },
     {
       "id": "139",
-      "piso": "2",
+      "piso": "5",
       "seccion": "",
       "plano": "1206-EST-2017A-PD-ADM-P2-D3",
       "cantidad": 1,
@@ -1339,7 +1424,7 @@
     },
     {
       "id": "140",
-      "piso": "2",
+      "piso": "5",
       "seccion": "",
       "plano": "1206-EST-2017A-PD-ADM-P2-D3",
       "cantidad": 1,
@@ -1349,7 +1434,7 @@
     },
     {
       "id": "141",
-      "piso": "2",
+      "piso": "5",
       "seccion": "",
       "plano": "1206-EST-2017A-PD-ADM-P2-D3",
       "cantidad": 1,
@@ -1422,6 +1507,179 @@
       "area": 1252,
       "volumen": 128.8,
       "peso": 10699
+    }
+  ],
+  "capitulos": [
+    {
+      "capitulo": "",
+      "volumen": 0,
+      "peso": 0,
+      "area": 0,
+      "cuantiaVol": 0,
+      "cuantiaArea": 0,
+      "consumo": 0
+    },
+    {
+      "capitulo": "Capítulo",
+      "volumen": null,
+      "peso": null,
+      "area": null,
+      "cuantiaVol": null,
+      "cuantiaArea": null,
+      "consumo": null
+    },
+    {
+      "capitulo": "Vigas cimentacion",
+      "volumen": 492,
+      "peso": 52745,
+      "area": 1701,
+      "cuantiaVol": 107.205284552846,
+      "cuantiaArea": 31.0082304526749,
+      "consumo": 0.289241622574956
+    },
+    {
+      "capitulo": "Losa cimentacion",
+      "volumen": 352.4,
+      "peso": 38396,
+      "area": 1701,
+      "cuantiaVol": 108.955732122588,
+      "cuantiaArea": 22.5726043503821,
+      "consumo": 0.207172251616696
+    },
+    {
+      "capitulo": "Pilotes",
+      "volumen": 826.8,
+      "peso": 25392,
+      "area": 1701,
+      "cuantiaVol": 30.711175616836,
+      "cuantiaArea": 14.9276895943563,
+      "consumo": 0.486067019400353
+    },
+    {
+      "capitulo": "Columnas",
+      "volumen": 276.2,
+      "peso": 62002,
+      "area": 8882,
+      "cuantiaVol": 224.48225923244,
+      "cuantiaArea": 6.98063499211889,
+      "consumo": 0.0310965998648953
+    },
+    {
+      "capitulo": "Muros",
+      "volumen": 544,
+      "peso": 38953,
+      "area": 8882,
+      "cuantiaVol": 71.6047794117647,
+      "cuantiaArea": 4.38561134879532,
+      "consumo": 0.0612474667867597
+    },
+    {
+      "capitulo": "Vigas Piso 2",
+      "volumen": 196.5,
+      "peso": 28122,
+      "area": 1583,
+      "cuantiaVol": 143.114503816794,
+      "cuantiaArea": 17.7650031585597,
+      "consumo": 0.124131396083386
+    },
+    {
+      "capitulo": "Losa Piso 2",
+      "volumen": 158.3,
+      "peso": 10897,
+      "area": 1583,
+      "cuantiaVol": 68.8376500315856,
+      "cuantiaArea": 6.88376500315856,
+      "consumo": 0.1
+    },
+    {
+      "capitulo": "Vigas Piso 3",
+      "volumen": 196.8,
+      "peso": 30987,
+      "area": 1506,
+      "cuantiaVol": 157.454268292683,
+      "cuantiaArea": 20.5756972111554,
+      "consumo": 0.130677290836653
+    },
+    {
+      "capitulo": "Losa Piso 3",
+      "volumen": 150.6,
+      "peso": 10528,
+      "area": 1506,
+      "cuantiaVol": 69.9070385126162,
+      "cuantiaArea": 6.99070385126162,
+      "consumo": 0.1
+    },
+    {
+      "capitulo": "Vigas Piso 4",
+      "volumen": 190.3,
+      "peso": 33599,
+      "area": 1506,
+      "cuantiaVol": 176.558066211245,
+      "cuantiaArea": 22.3100929614874,
+      "consumo": 0.126361221779548
+    },
+    {
+      "capitulo": "Losa Piso 4",
+      "volumen": 150.6,
+      "peso": 10367,
+      "area": 1506,
+      "cuantiaVol": 68.8379814077025,
+      "cuantiaArea": 6.88379814077025,
+      "consumo": 0.1
+    },
+    {
+      "capitulo": "Vigas Piso 5",
+      "volumen": 190.3,
+      "peso": 33599,
+      "area": 1506,
+      "cuantiaVol": 176.558066211245,
+      "cuantiaArea": 22.3100929614874,
+      "consumo": 0.126361221779548
+    },
+    {
+      "capitulo": "Losa Piso 5",
+      "volumen": 150.6,
+      "peso": 10367,
+      "area": 1506,
+      "cuantiaVol": 68.8379814077025,
+      "cuantiaArea": 6.88379814077025,
+      "consumo": 0.1
+    },
+    {
+      "capitulo": "Vigas Piso 6",
+      "volumen": 192,
+      "peso": 28112,
+      "area": 1506,
+      "cuantiaVol": 146.416666666667,
+      "cuantiaArea": 18.6666666666667,
+      "consumo": 0.127490039840637
+    },
+    {
+      "capitulo": "Losa Piso 6",
+      "volumen": 150.6,
+      "peso": 12234,
+      "area": 1506,
+      "cuantiaVol": 81.2350597609562,
+      "cuantiaArea": 8.12350597609562,
+      "consumo": 0.1
+    },
+    {
+      "capitulo": "Vigas Cubierta",
+      "volumen": 190,
+      "peso": 25479,
+      "area": 1252,
+      "cuantiaVol": 134.1,
+      "cuantiaArea": 20.3506389776358,
+      "consumo": 0.151757188498403
+    },
+    {
+      "capitulo": "Losa Cubierta",
+      "volumen": 128.8,
+      "peso": 10699,
+      "area": 1252,
+      "cuantiaVol": 83.0667701863354,
+      "cuantiaArea": 8.54552715654952,
+      "consumo": 0.102875399361022
     }
   ],
   "parametros": [
