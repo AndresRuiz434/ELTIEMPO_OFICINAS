@@ -58,10 +58,6 @@ let elementoSeleccionado = null;
 const tipo = new URLSearchParams(window.location.search).get("tipo");
 const TIPOS_CIMENTACION = ["pilotes", "contencion", "vigas", "losas"];
 
-if (!TIPOS_CIMENTACION.includes(tipo)) {
-  detalle.innerHTML = "<p>Tipo no válido para cimentación</p>";
-  throw new Error("Tipo no válido en cimentacion.js");
-}
 
 if (tipo === "pilotes" || tipo === "contencion") {
   const bloqueRes = document.querySelector(".grafica-resistencia");
@@ -75,6 +71,11 @@ const buscador = document.getElementById("buscador");
 const tipoGrafica = document.getElementById("tipoGrafica");
 
 let chart = null;
+
+if (!TIPOS_CIMENTACION.includes(tipo)) {
+  detalle.innerHTML = "<p>Tipo no válido para cimentación</p>";
+  throw new Error("Tipo no válido en cimentacion.js");
+}
 
 /* =====================================================
    INICIALIZACIÓN 
@@ -111,6 +112,10 @@ elementos = [...elementosOriginales];
       } else {
         detalle.innerHTML = "<p>No se encontró losa de cimentación</p>";
       }
+    }
+
+    if (tipo === "losas") {
+      selectElemento.style.display = "none";
     }
 
     if (tipo === "pilotes" || tipo === "contencion") {
@@ -291,7 +296,7 @@ function seleccionarElemento(el) {
       </div>
 
       <div class="fila">
-        <span class="label">Volumen</span>
+        <span class="label">Volumen Total</span>
         <span class="valor">${el.volumen} m³</span>
       </div>
 
@@ -655,11 +660,14 @@ function renderGrafica() {
   else if (tipo === "losas") {
     const piso = elementoSeleccionado.piso;
 
-    valorUnidad = DATA.losas
-      .filter(l => l.piso === piso)
-      .reduce((s, l) => s + (Number(l[campo]) || 0), 0);
+    const registros = DATA.losas.filter(l => l.piso === piso);
 
-    labelUnidad = `Losa Piso ${piso}`;
+    if (!registros.length) return;
+
+    valorUnidad = registros.reduce((s, l) => {
+      const val = Number(l[campo]);
+      return s + (isNaN(val) ? 0 : val);
+    }, 0);
   }
 
   const totalProyecto = obtenerTotalProyectoPorTipo(campo);
@@ -702,8 +710,8 @@ function renderGrafica() {
 function renderGraficaResistenciaPorPiso(vigas) {
 
   // 1. Eliminar la primera fila (encabezados)
-  const datos = vigas.slice(1).filter(v =>
-    v.piso && !isNaN(Number(v.resistencia))
+  const datos = vigas.filter(v =>
+  v.piso && !isNaN(Number(v.resistencia))
   );
 
   if (datos.length === 0) {
@@ -864,15 +872,30 @@ function mostrarResumenCapitulo() {
 function mostrarComparativoEntrepiso(pisoSeleccionado) {
 
   if (tipo !== "losas") return;
-  if (!pisoSeleccionado || pisoSeleccionado === "TOTAL") return;
+  if (!pisoSeleccionado) return;
 
-  // Extraer número del piso (ej: "Piso 2" -> "2")
-  const numeroPiso = pisoSeleccionado.toString().match(/\d+/)?.[0];
+  let nombreVigas;
+  let nombreLosas;
+  let titulo;
 
-  if (!numeroPiso) return;
+  const pisoLower = pisoSeleccionado.toLowerCase();
 
-  const nombreVigas = `vigas piso ${numeroPiso}`.toLowerCase();
-  const nombreLosas = `losa piso ${numeroPiso}`.toLowerCase();
+  // ===== CASO CIMENTACIÓN =====
+  if (pisoLower.includes("ciment")) {
+
+    nombreVigas = "vigas cimentación";
+    nombreLosas = "losa cimentación";
+    titulo = "Cimentación";
+
+  } else {
+
+    const numeroPiso = pisoSeleccionado.toString().match(/\d+/)?.[0];
+    if (!numeroPiso) return;
+
+    nombreVigas = `vigas piso ${numeroPiso}`;
+    nombreLosas = `losa piso ${numeroPiso}`;
+    titulo = `Piso ${numeroPiso}`;
+  }
 
   const capVigas = DATA.capitulos.find(c =>
     c.capitulo.toLowerCase() === nombreVigas
@@ -892,13 +915,13 @@ function mostrarComparativoEntrepiso(pisoSeleccionado) {
 
   bloque.innerHTML = `
     <div class="card-detalle" style="margin-top:20px">
-      <h4>Comparación Entrepiso – Piso ${numeroPiso}</h4>
+      <h4>Comparación Entrepiso – ${titulo}</h4>
 
       <table style="width:100%; border-collapse: collapse; text-align:center;">
         <thead>
           <tr>
             <th style="text-align:left;">Concepto</th>
-            <th>Vigas y viguetas</th>
+            <th>Vigas</th>
             <th>Losa</th>
           </tr>
         </thead>

@@ -391,7 +391,7 @@ function mostrarComparativo(el, pisoSeleccionado) {
 
   bloque.innerHTML = `
     <div class="card-detalle" style="margin-top:20px">
-      <h4>Comparación Elemento vs Total ${tipo}</h4>
+      <h4>Comparación Elemento vs Total ${tipo} en Piso ${pisoSeleccionado} </h4>
 
       <table style="width:100%; border-collapse: collapse; text-align:center;">
         <thead>
