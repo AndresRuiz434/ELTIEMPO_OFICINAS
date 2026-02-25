@@ -86,15 +86,17 @@ fetch("data/datos.json")
       return;
     }
 
-    if (tipo === "vigas" || tipo === "losas") {
-        elementos = DATA[tipo].filter(e =>
-            e.piso &&
-            e.piso.toString().toLowerCase() === "cimentacion"
-        );
-    } else {
-        elementos = DATA[tipo];
-    }
-    
+   if (tipo === "vigas" || tipo === "losas") {
+   
+     elementos = DATA[tipo].filter(e =>
+       e.piso &&
+       e.piso.toString().toLowerCase().includes("ciment")
+     );
+   
+   } else {
+     elementos = DATA[tipo];
+   }
+       
     cargarLista(elementos);
 
     if (tipo === "pilotes" || tipo === "contencion") {
