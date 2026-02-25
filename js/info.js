@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(res => res.json())
     .then(data => {
       configurarBIM(data.info.bim);
-      PDF_INFO = data.infoAdicional?.pdf;
+      PDF_INFO = data.info.cantidades;
       if (PDF_INFO) {
         renderPDFPreview(`info/${PDF_INFO}`, "pdfPreviewInfo");
       }
