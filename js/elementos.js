@@ -77,7 +77,7 @@ fetch("data/datos.json")
 
       elementos = DATA[tipo].filter(e =>
         !e.piso ||
-        e.piso.toString().toLowerCase() !== "cimentacion"
+        e.piso.toString().toLowerCase() !== "cimentación"
       );
 
     } else {
@@ -287,12 +287,13 @@ function seleccionarElemento(el) {
 
       <div class="separador"></div>
 
+      ${tipo !== "vigas" ? `
+
       <div class="fila">
-        <span class="label" id="labelVolumenPiso">Volumen (m³)</span>
+        <span class="label" id="labelVolumenPiso">Volumen total(m³)</span>
         <span class="valor" id="kpiVolumen">—</span>
       </div>
 
-      ${tipo !== "vigas" ? `
         <div class="fila">
           <span class="label">Acero total (kg)</span>
           <span class="valor" id="kpiPeso">—</span>

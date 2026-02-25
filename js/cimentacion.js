@@ -63,7 +63,7 @@ if (!TIPOS_CIMENTACION.includes(tipo)) {
   throw new Error("Tipo no válido en cimentacion.js");
 }
 
-if (tipo === "pilotes") {
+if (tipo === "pilotes" || tipo === "contencion") {
   const bloqueRes = document.querySelector(".grafica-resistencia");
   if (bloqueRes) bloqueRes.style.display = "none";
 }
@@ -118,7 +118,9 @@ elementos = [...elementosOriginales];
         mostrarResumenCapitulo();
     }
 
-    renderGraficaResistenciaPorPiso(DATA[tipo]);
+    if (tipo === "vigas") {
+      renderGraficaResistenciaPorPiso(DATA[tipo]);
+    }
 
     const selectPiso = document.getElementById("selectPiso");
     const bloquePiso = document.getElementById("bloquePiso");
@@ -301,6 +303,14 @@ function seleccionarElemento(el) {
     </div>
   `;
 
+      // Crear contenedor comparativo
+    const comparativoDiv = document.createElement("div");
+    comparativoDiv.id = "bloqueComparativo";
+    detalle.appendChild(comparativoDiv);
+
+    // Mostrar comparativo)
+    mostrarComparativo(el, "TOTAL");
+
     renderGrafica();
     return;
     } 
@@ -341,12 +351,13 @@ function seleccionarElemento(el) {
 
       <div class="separador"></div>
 
+      ${(tipo === "pilotes" || tipo === "contencion") ? `
+
       <div class="fila">
         <span class="label" id="labelVolumenPiso">Volumen (m³)</span>
         <span class="valor" id="kpiVolumen">—</span>
       </div>
 
-      ${(tipo === "pilotes" || tipo === "contencion") ? `
         <div class="fila">
           <span class="label">Acero total (kg)</span>
           <span class="valor" id="kpiPeso">—</span>

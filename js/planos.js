@@ -63,7 +63,7 @@ function mostrarPlano(p) {
   `;
 
   document.getElementById("visorPDF").src =
-    "Planos/" + p.pdf;
+    "planos/" + p.pdf;
 }
 
 /* ===== FECHA ===== */
@@ -122,4 +122,3 @@ const rol = localStorage.getItem("rol");
 if (!rol) {
   window.location.href = "index.html";
 }
-
