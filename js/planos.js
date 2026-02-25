@@ -1,3 +1,8 @@
+/* ==========================================
+   Página: Planos
+   Depende de: data/datos.json y carpeta de planos/
+   Uso: Visualización en pdf de todos los planos cargados 
+========================================== */
 let PLANOS = [];
 
 fetch("data/datos.json")
@@ -58,7 +63,7 @@ function mostrarPlano(p) {
   `;
 
   document.getElementById("visorPDF").src =
-    "Planos/" + p.pdf;
+    "planos/" + p.pdf;
 }
 
 /* ===== FECHA ===== */
@@ -113,5 +118,7 @@ function obtenerPlanoDesdeURL() {
   return params.get("plano");
 }
 
-
-
+const rol = localStorage.getItem("rol");
+if (!rol) {
+  window.location.href = "index.html";
+}
