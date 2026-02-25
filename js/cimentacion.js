@@ -51,6 +51,7 @@ const CAMPOS = {
 Chart.register(ChartDataLabels);
 
 let DATA = {};
+let elementosOriginales = [];
 let elementos = [];
 let elementoSeleccionado = null;
 
@@ -60,6 +61,11 @@ const TIPOS_CIMENTACION = ["pilotes", "contencion", "vigas", "losas"];
 if (!TIPOS_CIMENTACION.includes(tipo)) {
   detalle.innerHTML = "<p>Tipo no válido para cimentación</p>";
   throw new Error("Tipo no válido en cimentacion.js");
+}
+
+if (tipo === "pilotes") {
+  const bloqueRes = document.querySelector(".grafica-resistencia");
+  if (bloqueRes) bloqueRes.style.display = "none";
 }
 
 const tituloSeccion = document.getElementById("tituloSeccion");
@@ -87,18 +93,28 @@ fetch("data/datos.json")
     }
 
     if (tipo === "vigas" || tipo === "losas") {
-        elementos = DATA[tipo].filter(e =>
-            e.piso &&
-            e.piso.toString().toLowerCase() === "cimentacion"
-        );
+      elementosOriginales = DATA[tipo].filter(e =>
+        e.piso &&
+        e.piso.toString().toLowerCase().includes("ciment")
+      );
     } else {
-        elementos = DATA[tipo];
+      elementosOriginales = DATA[tipo];
     }
-    
+
+elementos = [...elementosOriginales];
+        
     cargarLista(elementos);
 
+    if (tipo === "losas") {
+      if (elementos.length > 0) {
+        seleccionarElemento(elementos[0]);
+      } else {
+        detalle.innerHTML = "<p>No se encontró losa de cimentación</p>";
+      }
+    }
+
     if (tipo === "pilotes" || tipo === "contencion") {
-        selectElemento.value = "TODAS";
+        selectElemento.value = "TODOS";
         mostrarResumenCapitulo();
     }
 
@@ -115,10 +131,10 @@ fetch("data/datos.json")
 buscador.addEventListener("input", e => {
   const txt = e.target.value.toLowerCase();
 
-  const filtrados = elementos.filter(el =>
-    JSON.stringify(el).toLowerCase().includes(txt)
+  elementos = elementosOriginales.filter(el =>
+  JSON.stringify(el).toLowerCase().includes(txt)
   );
-  elementos = filtrados
+
   cargarLista();
 
 });
@@ -132,7 +148,7 @@ const selectElemento = document.getElementById("selectElemento");
 selectElemento.addEventListener("change", e => {
   const index = e.target.value;
 
-  if (e.target.value === "TODAS") {
+  if (e.target.value === "TODOS") {
     mostrarResumenCapitulo();
     return;
   }
@@ -157,28 +173,14 @@ selectElemento.addEventListener("change", e => {
 
 function cargarLista() {
 
-  // ===== LOSAS =====
-  if (tipo === "losas") {
-    selectElemento.innerHTML = `<option value="">Seleccione un piso</option>`;
-
-    elementos.forEach((el, i) => {
-      const opt = document.createElement("option");
-      opt.value = i;
-      opt.textContent = el.piso; 
-      selectElemento.appendChild(opt);
-    });
-
-    return;
-  }
-
   // ===== LIMPIAR SELECT =====
   selectElemento.innerHTML =
     `<option value="">Seleccione un ${tipo.slice(0, -1)}</option>`;
 
-  // ===== AGREGAR TODAS (pilotes y contencion) =====
+  // ===== AGREGAR TODOS (pilotes y contencion) =====
     if (tipo === "pilotes" || tipo === "contencion") {
     selectElemento.innerHTML +=
-        `<option value="TODAS">Todas</option>`;
+        `<option value="TODOS">Todos</option>`;
     }
 
   // ===== AGREGAR ELEMENTOS =====
