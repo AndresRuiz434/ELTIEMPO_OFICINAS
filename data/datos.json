@@ -1750,7 +1750,7 @@
       "resistencia": "210"
     },
     {
-      "material": "Cimentación ",
+      "material": "Cimentacion ",
       "resistencia": "210"
     },
     {
@@ -1797,6 +1797,7 @@
     }
   ]
 }
+
 
 
 
