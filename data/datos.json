@@ -1529,7 +1529,7 @@
       "consumo": null
     },
     {
-      "capitulo": "Vigas cimentacion",
+      "capitulo": "Vigas cimentación",
       "volumen": 492,
       "peso": 52745,
       "area": 1701,
@@ -1538,7 +1538,7 @@
       "consumo": 0.289241622574956
     },
     {
-      "capitulo": "Losa cimentacion",
+      "capitulo": "Losa cimentación",
       "volumen": 352.4,
       "peso": 38396,
       "area": 1701,
@@ -1820,6 +1820,7 @@
     }
   ]
 }
+
 
 
 
