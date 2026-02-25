@@ -1682,6 +1682,41 @@
       "consumo": 0.102875399361022
     }
   ],
+    "contencion": [
+    {
+      "id": "ID",
+      "espesor": null,
+      "longitud": null,
+      "altura": null,
+      "plano": "Plano",
+      "cantidad": null,
+      "resistencia": null,
+      "volumen": null,
+      "peso": null
+    },
+    {
+      "id": "Pantalla Tipo 1",
+      "espesor": 0.4,
+      "longitud": 13,
+      "altura": 14.4,
+      "plano": "EAN-0519-AES-01-EST-CIM-PL-503-02.01",
+      "cantidad": 1,
+      "resistencia": null,
+      "volumen": 74.88,
+      "peso": 11839.77
+    },
+    {
+      "id": "Pantalla Tipo 2",
+      "espesor": 0.4,
+      "longitud": 54.02,
+      "altura": 9.7,
+      "plano": "EAN-0519-AES-01-EST-CIM-PL-503-02.01",
+      "cantidad": 1,
+      "resistencia": null,
+      "volumen": 209.6,
+      "peso": 27287.94
+    }
+  ],
   "parametros": [
     {
       "caracteristica": "Localización:",
@@ -1728,20 +1763,8 @@
       "valor": "AUS-23542"
     },
     {
-      "caracteristica": "De la Firma:",
-      "valor": "Alfonso Uribe S. y Cia. S.A. estudios de suelos"
-    },
-    {
       "caracteristica": "Tipo de Cimentación:",
       "valor": "Placa - Pilote "
-    },
-    {
-      "caracteristica": "Director del Proyecto:",
-      "valor": "Marcelo Paez"
-    },
-    {
-      "caracteristica": "Contacto:",
-      "valor": "3157106081"
     }
   ],
   "materiales": [
@@ -1797,6 +1820,8 @@
     }
   ]
 }
+
+
 
 
 
