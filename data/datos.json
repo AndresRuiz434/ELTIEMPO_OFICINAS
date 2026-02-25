@@ -15,14 +15,6 @@
   },
   "planos": [
     {
-      "plano": "Plano",
-      "numero": "Número",
-      "version": null,
-      "fecha": null,
-      "contenido": "Contenido",
-      "pdf": "Plano.pdf"
-    },
-    {
       "plano": "1206-EST-2006-PD-ADM-DES. COL Y MUR",
       "numero": "2006-",
       "version": 2,
@@ -208,16 +200,6 @@
   ],
   "columnas": [
     {
-      "id": "ID COLUMNA",
-      "seccion": "Sección",
-      "cantidad": null,
-      "piso": "Piso",
-      "resistencia": null,
-      "plano": "Plano",
-      "volumen": null,
-      "peso": null
-    },
-    {
       "id": "T1",
       "seccion": "60X80",
       "cantidad": 22,
@@ -349,17 +331,6 @@
     }
   ],
   "muros": [
-    {
-      "id": "ID MURO",
-      "espesor": null,
-      "longitud": null,
-      "plano": "Plano",
-      "cantidad": null,
-      "piso": "Piso",
-      "resistencia": null,
-      "volumen": null,
-      "peso": null
-    },
     {
       "id": "M1",
       "espesor": 0.3,
@@ -1023,16 +994,6 @@
   ],
   "vigas": [
     {
-      "id": "ID VIGA",
-      "piso": "Piso",
-      "seccion": "Sección",
-      "plano": "Plano",
-      "cantidad": null,
-      "resistencia": null,
-      "volumen": null,
-      "peso": null
-    },
-    {
       "id": "101",
       "piso": "Cimentacion",
       "seccion": "60x60",
@@ -1445,14 +1406,6 @@
   ],
   "losas": [
     {
-      "piso": "Piso",
-      "plano": "Plano",
-      "resistencia": null,
-      "area": null,
-      "volumen": null,
-      "peso": null
-    },
-    {
       "piso": "Cimentación",
       "plano": "1206-EST-2010-PP-ADM-PLANTA DE CIM",
       "resistencia": 21,
@@ -1510,24 +1463,6 @@
     }
   ],
   "capitulos": [
-    {
-      "capitulo": "",
-      "volumen": 0,
-      "peso": 0,
-      "area": 0,
-      "cuantiaVol": 0,
-      "cuantiaArea": 0,
-      "consumo": 0
-    },
-    {
-      "capitulo": "Capítulo",
-      "volumen": null,
-      "peso": null,
-      "area": null,
-      "cuantiaVol": null,
-      "cuantiaArea": null,
-      "consumo": null
-    },
     {
       "capitulo": "Vigas cimentación",
       "volumen": 492,
@@ -1683,17 +1618,6 @@
     }
   ],
     "contencion": [
-    {
-      "id": "ID",
-      "espesor": null,
-      "longitud": null,
-      "altura": null,
-      "plano": "Plano",
-      "cantidad": null,
-      "resistencia": null,
-      "volumen": null,
-      "peso": null
-    },
     {
       "id": "Pantalla Tipo 1",
       "espesor": 0.4,
